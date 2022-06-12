@@ -1,0 +1,940 @@
+SET MEMORY/SIZE = 1000
+  can data /all
+  can win /all
+  set win/new
+
+ SET WINDOW/ASPECT = 0.7/size=2
+
+  let Fig = $1%1%
+
+!=================================================================================
+  
+  If `Fig eq 1` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March650t9h.nc"              !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March925t9h.nc"              !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April925t9h.nc"             !d=4
+
+!climate change===========================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile950.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril925.nc" !8
+
+!=========10yrs running================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650March.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650April.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunni925march.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning925April.nc" !12
+
+
+set view v11
+
+PPL AXLABP,0,-1 
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+Plot/nolab/vlimit=-16:-4:1 U[d=1,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-4:1 U[d=5,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-4:1 U[d=9,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+!label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+label/nouser 0.5,3.5,-10,0,0.20, @TR WIND SPEED on 15W:0,4:10N FOR P650/p925 at9h
+
+!###################################
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-4:1 U[d=2,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-4:1 U[d=6,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-4:1 U[d=10,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+set view v21
+
+PPL AXLABP,0,-1 
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=0:4:1 U[d=3,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=7,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=11,x=-15:0@ave,y=4:10@ave,k=1]
+
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+!label/nouser 0.5,2.5,-10,0,0.20, @TR WIND SPEED on 15W:0,4:10N FOR P925 at9h
+
+!###################################
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=4,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=8,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=12,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+
+!====================================round 2===================================
+
+!=================================================================================
+  
+ elif `Fig eq 2` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June650t9h.nc"             !d=2
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June925t9h.nc"             !d=4
+
+!=========timmean=================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanmay650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timeanjune650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmay925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tim925june.nc" !8
+
+!===running average==========
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningMay.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningJune650.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunMay925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunJune650.nc" !12
+
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-8:1 U[d=1,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-8:1  U[d=5,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-8:1 U[d=9,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR May
+
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-8:1 U[d=2,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-8:1  U[d=6,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-8:1  U[d=10,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR June
+
+
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=3,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=7,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=11,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR May
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=4,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=8,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=12,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR June
+
+
+
+!===============================================================================================
+ elif `Fig eq 3` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August925t9h.nc"             !d=4
+
+!===============925==============================================================
+!timean=====================================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAugust650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAuugust925.nc" !8
+
+
+!10yrs running mean================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyersJuly650.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunAugust650.nc" !10
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunnJuly925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunningAugust925.nc" !12
+
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-10:0:1 U[d=1,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-10:0:1 U[d=5,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-10:0:1 U[d=9,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR July
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-10:0:1 U[d=2,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-10:0:1 U[d=6,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-10:0:1 U[d=10,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR August
+
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=2:6:1 U[d=3,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=2:6:1 U[d=7,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=2:6:1 U[d=11,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR July
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=2:6:1 U[d=4,x=-15:0@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=2:6:1 U[d=8,x=-15:0@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=2:6:1 U[d=12,x=-15:0@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,2.8,-10,0,0.20, @TR August
+
+
+!================================================)b) 4-10N, 0-15E================================================
+
+
+!===============================================================================================
+ elif `Fig eq 4` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March650t9h.nc"              !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March925t9h.nc"              !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April925t9h.nc"             !d=4
+
+!timean======================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile950.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril925.nc" !8
+
+
+!=========10yrs running================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650March.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650April.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunni925march.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning925April.nc" !12
+
+
+set view v11
+
+PPL AXLABP,0,-1 
+label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=-16:-4:1 U[d=1,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-4:1 U[d=5,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-4:1 U[d=9,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+!label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+label/nouser 0.5,3.5,-10,0,0.20, @TR WIND SPEED on 4-10N, 0-15E FOR P650/p925 at9h
+
+!###################################
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-4:1 U[d=2,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-4:1 U[d=6,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-4:1 U[d=10,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+set view v21
+
+PPL AXLABP,0,-1 
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=0:4:1 U[d=3,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=7,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=11,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+
+!###################################
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=4,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=8,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=8,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+
+!===============================================================================================
+ elif `Fig eq 5` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June925t9h.nc"             !d=4
+
+!timean==========================================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanmay650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timeanjune650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmay925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tim925june.nc" !8
+
+
+!===running average==========
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningMay.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningJune650.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunMay925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunJune650.nc" !12
+
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-8:1 U[d=1,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-8:1 U[d=5,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-8:1 U[d=9,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-8:1 U[d=2,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-8:1 U[d=6,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-8:1 U[d=10,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=3,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=7,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=11,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:4:1 U[d=4,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:4:1 U[d=8,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:4:1 U[d=12,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+   
+
+
+!===============================================================================================
+ elif `Fig eq 6` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August925t9h.nc"             !d=4
+
+
+!timean==================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAugust650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAuugust925.nc" !8
+
+
+
+!10yrs running mean================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyersJuly650.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunAugust650.nc" !10
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunnJuly925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunningAugust925.nc" !12
+
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-10:0:1 U[d=1,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-10:0:1 U[d=5,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-10:0:1 U[d=9,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-10:0:1  U[d=2,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-10:0:1 U[d=6,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-10:0:1 U[d=10,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=2:6:1 U[d=3,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=2:6:1 U[d=7,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=2:6:1 U[d=11,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v22!10yrs running mean================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyersJuly650.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunAugust650.nc" !10
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunnJuly925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunningAugust925.nc" !12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=2:6:1 U[d=4,x=0:15@ave,y=4:10@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=2:6:1 U[d=8,x=0:15@ave,y=4:10@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=2:6:1 U[d=12,x=0:15@ave,y=4:10@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+
+
+
+
+
+
+!================================================)c)10-16N, 0-15E================================================
+
+
+!===============================================================================================
+ elif `Fig eq 7` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March650t9h.nc"              !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April650t9h.nc"             !d=2
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March925t9h.nc"              !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April925t9h.nc"             !d=4
+
+!timean==================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile950.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril925.nc" !8
+
+!=========10yrs running================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650March.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650April.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunni925march.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning925April.nc" !12
+
+
+
+set view v11
+
+PPL AXLABP,0,-1 
+label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=-6:4:1 U[d=1,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-6:4:1 U[d=5,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-6:4:1 U[d=9,x=0:15@ave,y=10:16@ave,k=1]
+
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+!label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+label/nouser 0.5,3.5,-10,0,0.20, @TR WIND SPEED on 10-16N, 0-15E FOR P650/p925 at9h
+
+!###################################
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-6:4:1 U[d=2,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-6:4:1 U[d=6,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-6:4:1 U[d=10,x=0:15@ave,y=10:16@ave,k=1]
+
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+
+set view v21
+
+PPL AXLABP,0,-1 
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=-8:2:1 U[d=3,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-8:2:1 U[d=7,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-8:2:1 U[d=11,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+
+!###################################
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-8:2:1 U[d=4,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-8:2:1 U[d=8,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-8:2:1 U[d=12,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+
+!===============================================================================================
+ elif `Fig eq 8` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June650t9h.nc"             !d=2
+
+!============925=====
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June925t9h.nc"             !d=4
+
+!timmeann=========================================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanmay650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timeanjune650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmay925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tim925june.nc" !8
+
+
+!===running average==========
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningMay.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningJune650.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunMay925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunJune650.nc" !12
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=1,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=5,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=9,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=2,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=6,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=10,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+
+
+
+   
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=3,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=7,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=11,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=4,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=8,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=12,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+
+
+!===============================================================================================
+ elif `Fig eq 9` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+!===================650==========================================================
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August650t9h.nc"             !d=2
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August925t9h.nc"             !d=4
+
+!timmean====================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAugust650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAuugust925.nc" !8
+
+
+
+!10yrs running mean================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyersJuly650.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunAugust650.nc" !10
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunnJuly925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunningAugust925.nc" !12
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=1,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=5,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=9,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=2,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=6,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=10,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=3,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=7,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=11,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=4,x=0:15@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=8,x=0:15@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=11,x=0:15@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+
+
+
+
+!================================================) d) 10-16N, 15W-0================================================
+
+
+!===============================================================================================
+ elif `Fig eq 10` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March650t9h.nc"              !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April650t9h.nc"             !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/March925t9h.nc"              !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/April925t9h.nc"             !d=4
+
+!timean==============
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfile950.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/outfileApril925.nc" !8
+
+!=========10yrs running================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650March.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning650April.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunni925march.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunning925April.nc" !12
+
+
+
+set view v11
+
+PPL AXLABP,0,-1 
+Plot/nolab/vlimit=-6:4:1 U[d=1,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-6:4:1 U[d=5,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-6:4:1 U[d=9,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+!label/nouser 0.5,2.8,-10,0,0.20, @SR@P7 650hPa March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+label/nouser 0.5,3.5,-10,0,0.20, @TR WIND SPEED on 10-16N,15W-0 FOR P650/p925 at9h
+!###################################
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-6:4:1 U[d=2,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-6:4:1 U[d=6,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-6:4:1 U[d=10,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+!==================
+set view v21
+
+PPL AXLABP,0,-1 
+!fill/nolab/nokey/pal=rnb2/lev=(2,20,1)(inf) pre_topo[x=-30:50,y=-40:40,l=1, k=1]*1000; go land 7
+
+Plot/nolab/vlimit=-8:2:1 U[d=3,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-8:2:1 U[d=7,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-8:2:1 U[d=11,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+!label/nouser 0.5,3,-10,0,0.20, @TR March
+label/nouser 0.5,2.8,-10,0,0.20, @TR March
+
+!###################################
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-8:2:1 U[d=4,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-8:2:1 U[d=8,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-8:2:1 U[d=12,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR April
+
+!###################################
+
+
+!===============================================================================================
+ elif `Fig eq 11` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.09
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June650t9h.nc"            !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/May925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/June925t9h.nc"            !d=4
+
+!timmean==============
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanmay650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timeanjune650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmay925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tim925june.nc" !8
+
+!===running average==========
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningMay.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearrunningJune650.nc" !10
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunMay925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunJune650.nc" !12
+
+
+
+   
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=1,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=5,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=9,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=2,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=6,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=10,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+   
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=3,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=7,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=11,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR May
+
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=4,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=8,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=8,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR June
+
+
+!===============================================================================================
+ elif `Fig eq 12` then   !  Plot for 900 hPa at time 0600
+!================================================================================== 
+! go multi_view [rows],[columns], [xsize],[xstart],[xgap], [ysize],[ystart],[ygap],[prefix] 
+go multi_view    2,    2,        0.28,   0.08,   0.09,     0.2,    0.4,   0.099
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July650t9h.nc"             !d=1
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August650t9h.nc"           !d=2
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/July925t9h.nc"             !d=3
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/August925t9h.nc"           !d=4
+
+!timean=====================================
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly650.nc" !5
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAugust650.nc" !6
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanjuly925.nc" !7
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/timmeanAuugust925.nc" !8
+
+
+!10yrs running mean================
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyersJuly650.nc" !9
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunAugust650.nc" !10
+
+
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyearsrunnJuly925.nc" !11
+use "/home/user/Downloads/PROJECT/DATA/reucomponent/ANOMALIESPLOTING/monthly/650/tenyrsrunningAugust925.nc" !12
+
+
+set view v11
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=1,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=5,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=9,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v12
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=-16:-6:1 U[d=2,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=-16:-6:1 U[d=6,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=-16:-6:1 U[d=10,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+
+set view v21
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=3,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=7,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=11,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR July
+
+set view v22
+PPL AXLABP,0,-1 
+
+Plot/nolab/vlimit=0:6:1 U[d=4,x=-15:0@ave,y=10:16@ave,k=1]
+Plot/symbol=1/line/color=blue/over/nolab/vlimit=0:6:1 U[d=8,x=-15:0@ave,y=10:16@ave,k=1]
+!Plot/thick=2/dash-line/color=red/over/nolab/vlimit=0:6:1 U[d=12,x=-15:0@ave,y=10:16@ave,k=1]
+!LABEL xpos,ypos,center,angle,size text
+label/nouser 0.5,3,-10,0,0.20, @TR August
+
+
+
+
+
+
+
+
+endif
+!=================================================================================
+
+
+ exit
+!================================================================================== 
+
+
+!u-wind speed for both pressure 925 with 10yrs mean and 650hpa. 
+
+
+
+
+
+
+
+
+
